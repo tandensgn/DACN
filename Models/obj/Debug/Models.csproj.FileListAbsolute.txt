@@ -1,0 +1,12 @@
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\Models.dll.config
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\Models.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\Models.pdb
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\EntityFramework.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\EntityFramework.xml
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\obj\Debug\Models.csproj.CopyComplete
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\obj\Debug\Models.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\Models\obj\Debug\Models.pdb
