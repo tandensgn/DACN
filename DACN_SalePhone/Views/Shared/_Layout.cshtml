@@ -20,15 +20,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta charset="UTF-8" />
     <meta name="keywords" content="Electro Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
     </script>
     <!-- //Meta tag Keywords -->
+    <!-- Flexslider -->
+    <link href="~/Assets/client/css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Custom-Files -->
     <link href="~/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Bootstrap css -->
@@ -51,9 +53,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 
-    @{ Html.RenderAction("Categories", "Home"); }
+    @{ Html.RenderAction("CategoriesHeader", "Home"); }
     @RenderBody()
-    @RenderPage("footer.cshtml")
+    @{ Html.RenderAction("CategoriesFooter", "Home"); }
 
     <!-- js-files -->
     <!-- jquery -->

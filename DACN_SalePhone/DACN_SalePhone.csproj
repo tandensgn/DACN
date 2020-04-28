@@ -330,6 +330,8 @@
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

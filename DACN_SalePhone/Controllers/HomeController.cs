@@ -9,17 +9,27 @@ namespace DACN_SalePhone.Controllers
 {
     public class HomeController : Controller
     {
+        qlbdtDbEntities db = new qlbdtDbEntities();
         public ActionResult Index()
         {
             
             return View();
         }
+        public ActionResult Contact()
+        {
 
+            return View();
+        }
+        public ActionResult AboutUs()
+        {
+
+            return View();
+        }
 
         [ChildActionOnly]
-        public ActionResult Categories()
+        public ActionResult CategoriesHeader()
         {
-            qlbdtDbEntities db = new qlbdtDbEntities();
+            
             var categories = from i in db.categories
                              select new CategoriesList()
                              {
@@ -28,9 +38,18 @@ namespace DACN_SalePhone.Controllers
                              };
             return PartialView("header", categories);
         }
+        public ActionResult CategoriesFooter()
+        {
+            var categories = from i in db.categories
+                             select new CategoriesList()
+                             {
+                                 cateID = i.cate_id,
+                                 cateSeries = i.cate_series
+                             };
+            return PartialView("footer", categories);
+        }
         public ActionResult Product()
         {
-            qlbdtDbEntities db = new qlbdtDbEntities();
             var products = from i in db.products
                            select new ShowProduct()
                            {
@@ -59,11 +78,11 @@ namespace DACN_SalePhone.Controllers
                            };
             return View(products);
         }
-        public ActionResult ProductDetail()
+        public ActionResult ProductDetail(int productID)
         {
-            qlbdtDbEntities db = new qlbdtDbEntities();
             var productDetail = from i in db.products
-                           select new ShowProduct()
+                                where i.prod_id == productID
+                                select new ShowProduct()
                            {
                                productID = i.prod_id,
                                productName = i.prod_name,
