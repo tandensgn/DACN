@@ -131,7 +131,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoriesList.cs" />
     <Compile Include="Models\category.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -159,6 +158,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\imagesdetail.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\order.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -169,7 +171,7 @@
     <Compile Include="Models\product.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShowProduct.cs" />
+    <Compile Include="Models\Products.cs" />
     <Compile Include="Models\user.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -177,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\client\css\bootstrap.css" />
+    <Content Include="Assets\client\css\cc.css" />
     <Content Include="Assets\client\css\creditly.css" />
     <Content Include="Assets\client\css\easy-responsive-tabs.css" />
     <Content Include="Assets\client\css\flexslider.css" />

@@ -37,6 +37,15 @@
     <Property Name="cus_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="orders" Relationship="Self.fk_order_customers" FromRole="customers" ToRole="orders" />
   </EntityType>
+  <EntityType Name="imagesdetail">
+    <Key>
+      <PropertyRef Name="img_id" />
+    </Key>
+    <Property Name="img_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prod_id" Type="Int32" Nullable="false" />
+    <Property Name="img_link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="product" Relationship="Self.fk_imagesdetail_products" FromRole="imagesdetail" ToRole="products" />
+  </EntityType>
   <EntityType Name="orderdetail">
     <Key>
       <PropertyRef Name="ord_id" />
@@ -67,9 +76,10 @@
       <PropertyRef Name="prod_id" />
     </Key>
     <Property Name="prod_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cate_id" Type="Int32" Nullable="false" />
     <Property Name="prod_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="prod_icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="prod_price" Type="Int32" Nullable="false" />
-    <Property Name="prod_image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_warranty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_accessories" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_condition" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -87,9 +97,9 @@
     <Property Name="prod_Ememory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_sim" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_pin" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="cate_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="category" Relationship="Self.fk_products_categories" FromRole="products" ToRole="categories" />
     <NavigationProperty Name="colorproducts" Relationship="Self.fk_colorproduct_products" FromRole="products" ToRole="colorproduct" />
+    <NavigationProperty Name="imagesdetails" Relationship="Self.fk_imagesdetail_products" FromRole="products" ToRole="imagesdetail" />
     <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_products" FromRole="products" ToRole="orderdetail" />
   </EntityType>
   <EntityType Name="user">
@@ -150,6 +160,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_imagesdetail_products">
+    <End Role="products" Type="Self.product" Multiplicity="1" />
+    <End Role="imagesdetail" Type="Self.imagesdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="imagesdetail">
+        <PropertyRef Name="prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_orderdetail_orders">
     <End Role="orders" Type="Self.order" Multiplicity="1" />
     <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -179,6 +201,7 @@
     <EntitySet Name="colorlists" EntityType="Self.colorlist" />
     <EntitySet Name="colorproducts" EntityType="Self.colorproduct" />
     <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="imagesdetails" EntityType="Self.imagesdetail" />
     <EntitySet Name="orderdetails" EntityType="Self.orderdetail" />
     <EntitySet Name="orders" EntityType="Self.order" />
     <EntitySet Name="products" EntityType="Self.product" />
@@ -198,6 +221,10 @@
     <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
       <End Role="customers" EntitySet="customers" />
       <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_imagesdetail_products" Association="Self.fk_imagesdetail_products">
+      <End Role="products" EntitySet="products" />
+      <End Role="imagesdetail" EntitySet="imagesdetails" />
     </AssociationSet>
     <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
       <End Role="orders" EntitySet="orders" />

@@ -5,12 +5,18 @@ using System.Web;
 
 namespace DACN_SalePhone.Models
 {
-    public class ShowProduct
+    public class CategoriesList
+    {
+        public int cateID { set; get; }
+        public string cateSeries { set; get; }
+    }
+    public class ProductsInfo
     {
         public int productID { set; get; }
+        public int cateID { set; get; }
         public string productName { set; get; }
+        public string productIcon { set; get; }
         public int productPrice { set; get; }
-        public string productImage { set; get; }
         public string productWarranty { set; get; }
         public string productAccessories { set; get; }
         public string productCondition { set; get; }
@@ -28,11 +34,27 @@ namespace DACN_SalePhone.Models
         public string productEmemory { set; get; }
         public string productSim { set; get; }
         public string productPin { set; get; }
-        public int cateID { set; get; }
-
-
-
-
-
     }
+    public class ImagesDetail
+    {
+        public int imgId { set; get; }
+        public int prodId { set; get; }
+        public string imgLink { set; get; }
+    }
+
+    public class ProductsInfoAll
+    {
+        public IEnumerable<ProductsInfo> productsInfo { get; set; }
+        public IEnumerable<ImagesDetail> imagesDetail { get; set; }
+        public IEnumerable<CategoriesList> categoriesList { get; set; }
+    }
+
+    public class PageProduct
+    {
+        public int prodId { get; set; }
+        public string cateSeries { get; set; }
+        public string prodName { get; set; }
+        public int prodPrice { get; set; }
+    }
+
 }

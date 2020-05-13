@@ -32,6 +32,14 @@
     <Property Name="cus_email" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="cus_address" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
+  <EntityType Name="imagesdetail">
+    <Key>
+      <PropertyRef Name="img_id" />
+    </Key>
+    <Property Name="img_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prod_id" Type="int" Nullable="false" />
+    <Property Name="img_link" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="orderdetail">
     <Key>
       <PropertyRef Name="ord_id" />
@@ -58,9 +66,10 @@
       <PropertyRef Name="prod_id" />
     </Key>
     <Property Name="prod_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cate_id" Type="int" Nullable="false" />
     <Property Name="prod_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="prod_icon" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_price" Type="int" Nullable="false" />
-    <Property Name="prod_image" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_warranty" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_accessories" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_condition" Type="varchar" MaxLength="255" Nullable="false" />
@@ -78,7 +87,6 @@
     <Property Name="prod_Ememory" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_sim" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_pin" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="cate_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="users">
     <Key>
@@ -110,6 +118,18 @@
         <PropertyRef Name="prod_id" />
       </Principal>
       <Dependent Role="colorproduct">
+        <PropertyRef Name="prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_imagesdetail_products">
+    <End Role="products" Type="Self.products" Multiplicity="1" />
+    <End Role="imagesdetail" Type="Self.imagesdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="imagesdetail">
         <PropertyRef Name="prod_id" />
       </Dependent>
     </ReferentialConstraint>
@@ -167,6 +187,7 @@
     <EntitySet Name="colorlist" EntityType="Self.colorlist" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="colorproduct" EntityType="Self.colorproduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="imagesdetail" EntityType="Self.imagesdetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="orderdetail" EntityType="Self.orderdetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
@@ -178,6 +199,10 @@
     <AssociationSet Name="fk_colorproduct_products" Association="Self.fk_colorproduct_products">
       <End Role="products" EntitySet="products" />
       <End Role="colorproduct" EntitySet="colorproduct" />
+    </AssociationSet>
+    <AssociationSet Name="fk_imagesdetail_products" Association="Self.fk_imagesdetail_products">
+      <End Role="products" EntitySet="products" />
+      <End Role="imagesdetail" EntitySet="imagesdetail" />
     </AssociationSet>
     <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
       <End Role="customers" EntitySet="customers" />

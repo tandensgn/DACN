@@ -5,10 +5,9 @@
 }
 
 
-@model IEnumerable<DACN_SalePhone.Models.ShowProduct>
+@model DACN_SalePhone.Models.ProductsInfoAll
 
-
-@foreach (var item in Model)
+@foreach(DACN_SalePhone.Models.CategoriesList item in Model.categoriesList)
 {
     <!-- page -->
     <div class="services-breadcrumb">
@@ -19,7 +18,7 @@
                         <a href="Index">Home</a>
                         <i>|</i>
                     </li>
-                    <li>@item.cateID</li>
+                    <li>@item.cateId</li>
                 </ul>
             </div>
         </div>
@@ -43,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-               
+
 
                 <div class="col-lg-7 single-right-left simpleCart_shelfItem">
                     <h3 class="mb-3">@item.productName</h3>
@@ -60,14 +59,14 @@
                                 Shipping Speed to Delivery.
                             </li>
                             <li class="mb-3">
-                                Bank OfferExtra 5% off* with Axis Bank Buzz Credit CardT&C
+                                Bank OfferExtra 5% off
                             </li>
                         </ul>
                     </div>
                     <div class="product-single-w3l">
                         <p class="my-3">
                             <i class="far fa-hand-point-right mr-2"></i>
-                            <label>@item.productWarranty</label>Manufacturer Warranty
+                            <label>@item.productWarranty</label> Manufacturer Warranty
                         </p>
                         <ul>
                             <li class="mb-1">
@@ -112,7 +111,6 @@
             </div>
         </div>
     </div>
-    
+
     <!-- //Single Page -->
 }
-

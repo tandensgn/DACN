@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IEnumerable<DACN_SalePhone.Models.ShowProduct>
+@model DACN_SalePhone.Models.PageProduct
 
 <!-- banner-2 -->
 <div class="page-head_agile_info_w3l">
@@ -20,7 +20,7 @@
                     <a href="Index">Home</a>
                     <i>|</i>
                 </li>
-                <li></li>
+                <li>cateSeries</li>
             </ul>
         </div>
     </div>
@@ -43,7 +43,7 @@
                     <!-- first section -->
                     <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
                         <div class="row">
-                            @foreach (var item in Model)
+                            @foreach (DACN_SalePhone.Models.PageProduct item in Model.productsInfo)
                             {
                                 <div class="col-md-4 product-men">
                                     <div class="men-pro-item simpleCart_shelfItem">

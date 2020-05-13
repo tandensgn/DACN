@@ -17,13 +17,15 @@ namespace DACN_SalePhone.Models
         public product()
         {
             this.colorproducts = new HashSet<colorproduct>();
+            this.imagesdetails = new HashSet<imagesdetail>();
             this.orderdetails = new HashSet<orderdetail>();
         }
     
         public int prod_id { get; set; }
+        public int cate_id { get; set; }
         public string prod_name { get; set; }
+        public string prod_icon { get; set; }
         public int prod_price { get; set; }
-        public string prod_image { get; set; }
         public string prod_warranty { get; set; }
         public string prod_accessories { get; set; }
         public string prod_condition { get; set; }
@@ -41,10 +43,10 @@ namespace DACN_SalePhone.Models
         public string prod_Ememory { get; set; }
         public string prod_sim { get; set; }
         public string prod_pin { get; set; }
-        public int cate_id { get; set; }
     
         public virtual category category { get; set; }
         public virtual ICollection<colorproduct> colorproducts { get; set; }
+        public virtual ICollection<imagesdetail> imagesdetails { get; set; }
         public virtual ICollection<orderdetail> orderdetails { get; set; }
     }
 }

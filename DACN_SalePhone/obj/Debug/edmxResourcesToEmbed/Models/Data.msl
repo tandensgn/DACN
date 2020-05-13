@@ -37,6 +37,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="imagesdetails">
+      <EntityTypeMapping TypeName="qlbdtDbModel.imagesdetail">
+        <MappingFragment StoreEntitySet="imagesdetail">
+          <ScalarProperty Name="img_id" ColumnName="img_id" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="img_link" ColumnName="img_link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="orderdetails">
       <EntityTypeMapping TypeName="qlbdtDbModel.orderdetail">
         <MappingFragment StoreEntitySet="orderdetail">
@@ -64,9 +73,10 @@
       <EntityTypeMapping TypeName="qlbdtDbModel.product">
         <MappingFragment StoreEntitySet="products">
           <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="cate_id" ColumnName="cate_id" />
           <ScalarProperty Name="prod_name" ColumnName="prod_name" />
+          <ScalarProperty Name="prod_icon" ColumnName="prod_icon" />
           <ScalarProperty Name="prod_price" ColumnName="prod_price" />
-          <ScalarProperty Name="prod_image" ColumnName="prod_image" />
           <ScalarProperty Name="prod_warranty" ColumnName="prod_warranty" />
           <ScalarProperty Name="prod_accessories" ColumnName="prod_accessories" />
           <ScalarProperty Name="prod_condition" ColumnName="prod_condition" />
@@ -84,7 +94,6 @@
           <ScalarProperty Name="prod_Ememory" ColumnName="prod_Ememory" />
           <ScalarProperty Name="prod_sim" ColumnName="prod_sim" />
           <ScalarProperty Name="prod_pin" ColumnName="prod_pin" />
-          <ScalarProperty Name="cate_id" ColumnName="cate_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

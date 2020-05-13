@@ -29,6 +29,7 @@ namespace DACN_SalePhone.Models
         public DbSet<colorlist> colorlists { get; set; }
         public DbSet<colorproduct> colorproducts { get; set; }
         public DbSet<customer> customers { get; set; }
+        public DbSet<imagesdetail> imagesdetails { get; set; }
         public DbSet<orderdetail> orderdetails { get; set; }
         public DbSet<order> orders { get; set; }
         public DbSet<product> products { get; set; }
