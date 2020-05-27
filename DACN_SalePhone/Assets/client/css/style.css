@@ -575,6 +575,7 @@ h3.tittle-w3l span {
 
 .men-pro-item {
     position: relative;
+    padding-bottom: 60px;
 }
 
 .men-thumb-item {
@@ -1790,6 +1791,7 @@ button.submit.check_out:hover {
     color: #212121;
     border: 1px solid #e7e7e7;
 }
+
 
 .agileinfo_main_grid_left_grid h3 {
     font-size: 1.3em;

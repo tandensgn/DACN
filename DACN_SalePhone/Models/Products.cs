@@ -35,26 +35,38 @@ namespace DACN_SalePhone.Models
         public string productSim { set; get; }
         public string productPin { set; get; }
     }
-    public class ImagesDetail
-    {
-        public int imgId { set; get; }
-        public int prodId { set; get; }
-        public string imgLink { set; get; }
-    }
 
-    public class ProductsInfoAll
+    public class ProductListByCategories
     {
         public IEnumerable<ProductsInfo> productsInfo { get; set; }
-        public IEnumerable<ImagesDetail> imagesDetail { get; set; }
         public IEnumerable<CategoriesList> categoriesList { get; set; }
     }
 
-    public class PageProduct
+    public class ProductsAndCategories
     {
-        public int prodId { get; set; }
-        public string cateSeries { get; set; }
-        public string prodName { get; set; }
-        public int prodPrice { get; set; }
+        public int productID { set; get; }
+        public int cateID { set; get; }
+        public string productName { set; get; }
+        public string productIcon { set; get; }
+        public int productPrice { set; get; }
+        public string productWarranty { set; get; }
+        public string productAccessories { set; get; }
+        public string productCondition { set; get; }
+        public string productPromotion { set; get; }
+        public int productStatus { set; get; }
+        public string productDescription { set; get; }
+        public int productFeatured { set; get; }
+        public string productScreen { set; get; }
+        public string productOs { set; get; }
+        public string productCamf { set; get; }
+        public string productCamr { set; get; }
+        public string productCpu { set; get; }
+        public string productRam { set; get; }
+        public string productImemory { set; get; }
+        public string productEmemory { set; get; }
+        public string productSim { set; get; }
+        public string productPin { set; get; }
+        public string cateSeries { set; get; }
     }
 
 }

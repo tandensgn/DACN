@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="qlbdtDbModelStoreContainer" CdmEntityContainer="qlbdtDbEntities">
+  <EntityContainerMapping StorageEntityContainer="qlbdtDBModelStoreContainer" CdmEntityContainer="qlbdtDBEntities">
     <EntitySetMapping Name="categories">
-      <EntityTypeMapping TypeName="qlbdtDbModel.category">
+      <EntityTypeMapping TypeName="qlbdtDBModel.category">
         <MappingFragment StoreEntitySet="categories">
           <ScalarProperty Name="cate_id" ColumnName="cate_id" />
           <ScalarProperty Name="cate_series" ColumnName="cate_series" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="colorlists">
-      <EntityTypeMapping TypeName="qlbdtDbModel.colorlist">
+      <EntityTypeMapping TypeName="qlbdtDBModel.colorlist">
         <MappingFragment StoreEntitySet="colorlist">
           <ScalarProperty Name="co_id" ColumnName="co_id" />
           <ScalarProperty Name="co_name" ColumnName="co_name" />
@@ -18,7 +18,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="colorproducts">
-      <EntityTypeMapping TypeName="qlbdtDbModel.colorproduct">
+      <EntityTypeMapping TypeName="qlbdtDBModel.colorproduct">
         <MappingFragment StoreEntitySet="colorproduct">
           <ScalarProperty Name="cop_id" ColumnName="cop_id" />
           <ScalarProperty Name="prod_id" ColumnName="prod_id" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="customers">
-      <EntityTypeMapping TypeName="qlbdtDbModel.customer">
+      <EntityTypeMapping TypeName="qlbdtDBModel.customer">
         <MappingFragment StoreEntitySet="customers">
           <ScalarProperty Name="cus_id" ColumnName="cus_id" />
           <ScalarProperty Name="cus_name" ColumnName="cus_name" />
@@ -37,17 +37,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="imagesdetails">
-      <EntityTypeMapping TypeName="qlbdtDbModel.imagesdetail">
-        <MappingFragment StoreEntitySet="imagesdetail">
-          <ScalarProperty Name="img_id" ColumnName="img_id" />
-          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
-          <ScalarProperty Name="img_link" ColumnName="img_link" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="orderdetails">
-      <EntityTypeMapping TypeName="qlbdtDbModel.orderdetail">
+      <EntityTypeMapping TypeName="qlbdtDBModel.orderdetail">
         <MappingFragment StoreEntitySet="orderdetail">
           <ScalarProperty Name="ord_id" ColumnName="ord_id" />
           <ScalarProperty Name="or_id" ColumnName="or_id" />
@@ -60,7 +51,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orders">
-      <EntityTypeMapping TypeName="qlbdtDbModel.order">
+      <EntityTypeMapping TypeName="qlbdtDBModel.order">
         <MappingFragment StoreEntitySet="orders">
           <ScalarProperty Name="or_id" ColumnName="or_id" />
           <ScalarProperty Name="cus_id" ColumnName="cus_id" />
@@ -70,7 +61,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="products">
-      <EntityTypeMapping TypeName="qlbdtDbModel.product">
+      <EntityTypeMapping TypeName="qlbdtDBModel.product">
         <MappingFragment StoreEntitySet="products">
           <ScalarProperty Name="prod_id" ColumnName="prod_id" />
           <ScalarProperty Name="cate_id" ColumnName="cate_id" />
@@ -98,7 +89,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="qlbdtDbModel.user">
+      <EntityTypeMapping TypeName="qlbdtDBModel.user">
         <MappingFragment StoreEntitySet="users">
           <ScalarProperty Name="us_id" ColumnName="us_id" />
           <ScalarProperty Name="us_name" ColumnName="us_name" />

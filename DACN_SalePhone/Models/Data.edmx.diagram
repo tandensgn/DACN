@@ -4,23 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="77f513ac8d294f08ab525cc10d0c9d74" Name="Diagram1">
-        <EntityTypeShape EntityType="qlbdtDbModel.category" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.colorlist" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.colorproduct" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.customer" Width="1.5" PointX="0.875" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.imagesdetail" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.orderdetail" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.order" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.product" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="qlbdtDbModel.user" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="qlbdtDbModel.fk_products_categories" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_colorproduct_colorlist" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_colorproduct_products" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_order_customers" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_imagesdetail_products" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_orderdetail_orders" ManuallyRouted="false" />
-        <AssociationConnector Association="qlbdtDbModel.fk_orderdetail_products" ManuallyRouted="false" />
+      <Diagram DiagramId="8a33deac9c1b47b3b99ddeac1c99b6f5" Name="Diagram1">
+        <EntityTypeShape EntityType="qlbdtDBModel.category" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.colorlist" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.colorproduct" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.customer" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.orderdetail" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.order" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.product" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlbdtDBModel.user" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="qlbdtDBModel.fk_products_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="qlbdtDBModel.fk_colorproduct_colorlist" ManuallyRouted="false" />
+        <AssociationConnector Association="qlbdtDBModel.fk_colorproduct_products" ManuallyRouted="false" />
+        <AssociationConnector Association="qlbdtDBModel.fk_order_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="qlbdtDBModel.fk_orderdetail_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="qlbdtDBModel.fk_orderdetail_products" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

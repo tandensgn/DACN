@@ -61,7 +61,7 @@
                         @foreach (var item in Model)
                         {
                             <li class="mb-3">
-                                <a href="@Url.Action("Product","Home",new {cateID = item.cateID})">
+                                <a href="@Url.Action("ProductListByCategories","Home",new {cateID = item.cateID})">
                                     @item.cateSeries
                                 </a>
                             </li>

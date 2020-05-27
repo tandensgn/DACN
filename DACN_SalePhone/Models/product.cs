@@ -17,7 +17,6 @@ namespace DACN_SalePhone.Models
         public product()
         {
             this.colorproducts = new HashSet<colorproduct>();
-            this.imagesdetails = new HashSet<imagesdetail>();
             this.orderdetails = new HashSet<orderdetail>();
         }
     
@@ -46,7 +45,6 @@ namespace DACN_SalePhone.Models
     
         public virtual category category { get; set; }
         public virtual ICollection<colorproduct> colorproducts { get; set; }
-        public virtual ICollection<imagesdetail> imagesdetails { get; set; }
         public virtual ICollection<orderdetail> orderdetails { get; set; }
     }
 }

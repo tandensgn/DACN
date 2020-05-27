@@ -1071,6 +1071,7 @@ pre code {
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
+    padding-bottom: 50px;
   }
   .col-md-auto {
     -webkit-box-flex: 0;

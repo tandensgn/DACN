@@ -15,7 +15,7 @@ namespace DACN_SalePhone.Controllers
         // GET: Login
         public ActionResult Login(FormCollection fm)
         {
-            qlbdtDbEntities db = new qlbdtDbEntities();
+            qlbdtDBEntities db = new qlbdtDBEntities();
             var userEmail = fm["userEmail"];
             var userPassword = fm["userPassword"];
 

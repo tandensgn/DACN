@@ -51,6 +51,7 @@ D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\roslyn\vbc.r
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\roslyn\VBCSCompiler.exe
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\roslyn\VBCSCompiler.exe.config
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\Antlr3.Runtime.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\EntityFramework.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\Microsoft.Web.Infrastructure.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\Newtonsoft.Json.dll
@@ -62,6 +63,7 @@ D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.W
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.WebPages.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.WebPages.Razor.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\WebGrease.dll
+D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\EntityFramework.xml
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.Helpers.xml
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.Mvc.xml
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\System.Web.Optimization.xml
@@ -76,6 +78,4 @@ D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\obj\Debug\DACN_S
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\obj\Debug\DACN_SalePhone.csproj.CopyComplete
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\obj\Debug\DACN_SalePhone.dll
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\obj\Debug\DACN_SalePhone.pdb
-D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\EntityFramework.dll
-D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\bin\EntityFramework.xml
 D:\MonHoc\DoAnChuyenNganh\Project\DACN_SalePhone\DACN_SalePhone\obj\Debug\DACN_SalePhone.csprojAssemblyReference.cache
