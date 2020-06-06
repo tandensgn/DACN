@@ -3,17 +3,23 @@
     ViewBag.Title = "ProductListByCategories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using DACN_SalePhone.Models
 @model DACN_SalePhone.Models.ProductListByCategories
+@{
+    var cateSeries = ViewBag.cateSeries;
+}
 <!-- page -->
 <div class="services-breadcrumb">
     <div class="agile_inner_breadcrumb">
         <div class="container">
             <ul class="w3_short">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="Index">Home</a>
                     <i>|</i>
                 </li>
-                <li>Electronics</li>
+                <li>
+                    <a href="@Url.Action("ProductListByCategories","Home",new {cateID = cateSeries.cateID})">@cateSeries.cateSeries</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,21 +59,26 @@
                                                 <a href="@Url.Action("ProductDetail", "Home", new { prodId = item.productID })">@item.productName</a>
                                             </h4>
                                             <div class="info-product-price my-2">
-                                                <span class="item_price">@item.productPrice</span>
-                                                <del>$280.00</del>
+                                                <span class="item_price">@item.productPrice  VND</span>
+                                                <del>@item.productReprice  VND</del>
                                             </div>
                                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                                                 <form action="#" method="post">
+                                                    <div class="quantity_title">
+                                                        <i class="fas fa-cart-plus" style="color: #0879c9; font-size: 24px;padding-right: 15px;"></i> Quantity :
+                                                    </div>
+                                                    <div class="invert" style="padding: 20px 0px;">
+                                                        <div class="quantity">
+                                                            <div class="quantity-select">
+                                                                <div class="entry value-minus">&nbsp;</div>
+                                                                <div class="entry value">
+                                                                    <span>1</span>
+                                                                </div>
+                                                                <div class="entry value-plus active">&nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="Samsung Galaxy J7" />
-                                                        <input type="hidden" name="amount" value="200.00" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
                                                         <input type="submit" name="submit" value="Add to cart" class="button btn" />
                                                     </fieldset>
                                                 </form>

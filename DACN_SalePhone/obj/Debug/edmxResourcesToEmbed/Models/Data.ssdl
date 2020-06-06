@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="qlbdtDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="qlbdtDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="categories">
     <Key>
       <PropertyRef Name="cate_id" />
@@ -49,7 +49,8 @@
       <PropertyRef Name="or_id" />
     </Key>
     <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cus_id" Type="int" Nullable="false" />
+    <Property Name="or_date" Type="datetime" Nullable="false" />
+    <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="or_status" Type="int" Nullable="false" />
     <Property Name="cus_total" Type="int" Nullable="false" />
   </EntityType>
@@ -61,6 +62,8 @@
     <Property Name="cate_id" Type="int" Nullable="false" />
     <Property Name="prod_name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_icon" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="prod_image" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="prod_reprice" Type="int" />
     <Property Name="prod_price" Type="int" Nullable="false" />
     <Property Name="prod_warranty" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_accessories" Type="varchar" MaxLength="255" Nullable="false" />
@@ -76,7 +79,7 @@
     <Property Name="prod_cpu" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_ram" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_Imemory" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="prod_Ememory" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="prod_Ememory" Type="varchar" MaxLength="255" />
     <Property Name="prod_sim" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="prod_pin" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
@@ -114,18 +117,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_order_customers">
-    <End Role="customers" Type="Self.customers" Multiplicity="1" />
-    <End Role="orders" Type="Self.orders" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="customers">
-        <PropertyRef Name="cus_id" />
-      </Principal>
-      <Dependent Role="orders">
-        <PropertyRef Name="cus_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_orderdetail_orders">
     <End Role="orders" Type="Self.orders" Multiplicity="1" />
     <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -135,18 +126,6 @@
       </Principal>
       <Dependent Role="orderdetail">
         <PropertyRef Name="or_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_orderdetail_products">
-    <End Role="products" Type="Self.products" Multiplicity="1" />
-    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="products">
-        <PropertyRef Name="prod_id" />
-      </Principal>
-      <Dependent Role="orderdetail">
-        <PropertyRef Name="prod_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -162,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="qlbdtDBModelStoreContainer">
+  <EntityContainer Name="qlbdtDbModelStoreContainer">
     <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="colorlist" EntityType="Self.colorlist" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="colorproduct" EntityType="Self.colorproduct" Schema="dbo" store:Type="Tables" />
@@ -179,16 +158,8 @@
       <End Role="products" EntitySet="products" />
       <End Role="colorproduct" EntitySet="colorproduct" />
     </AssociationSet>
-    <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
-      <End Role="customers" EntitySet="customers" />
-      <End Role="orders" EntitySet="orders" />
-    </AssociationSet>
     <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
       <End Role="orders" EntitySet="orders" />
-      <End Role="orderdetail" EntitySet="orderdetail" />
-    </AssociationSet>
-    <AssociationSet Name="fk_orderdetail_products" Association="Self.fk_orderdetail_products">
-      <End Role="products" EntitySet="products" />
       <End Role="orderdetail" EntitySet="orderdetail" />
     </AssociationSet>
     <AssociationSet Name="fk_products_categories" Association="Self.fk_products_categories">

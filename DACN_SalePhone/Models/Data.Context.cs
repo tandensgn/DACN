@@ -13,10 +13,10 @@ namespace DACN_SalePhone.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class qlbdtDBEntities : DbContext
+    public partial class qlbdtDbEntities : DbContext
     {
-        public qlbdtDBEntities()
-            : base("name=qlbdtDBEntities")
+        public qlbdtDbEntities()
+            : base("name=qlbdtDbEntities")
         {
         }
     

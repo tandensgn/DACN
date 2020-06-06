@@ -23,6 +23,5 @@ namespace DACN_SalePhone.Models
         public int ord_total { get; set; }
     
         public virtual order order { get; set; }
-        public virtual product product { get; set; }
     }
 }

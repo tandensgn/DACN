@@ -185,9 +185,21 @@
                             <form action="#" method="post" class="last">
                                 <input type="hidden" name="cmd" value="_cart">
                                 <input type="hidden" name="display" value="1">
-                                <button class="btn w3view-cart" type="submit" name="submit" value="">
-                                    <i class="fas fa-cart-arrow-down"></i>
-                                </button>
+                                <a href="@Url.Action("ShoppingCart", "Shopping", new { id = "cartItem" })" class="btn w3view-cart" type="button" name="btn_shoppingcart" value="">
+
+                                    @if (Session["CartCounter"] == null)
+                                    {
+                                        <i class="fas fa-cart-arrow-down" style="color:white"></i>
+                                        <span id="cartItem"></span>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-cart-arrow-down" style="color:white"></i>
+                                       
+                                        <span id="cartItem"> @Session["CartCounter"]</span>
+                                    }
+
+                                </a>
                             </form>
                         </div>
                     </div>
@@ -221,28 +233,28 @@
 
                     </li><!---->
                     @foreach (var item in Model)
-                        {
-                            <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                               
-                                <a class="nav-link" href="@Url.Action("ProductListByCategories","Home",new {cateID = item.cateID})">
-                                    @item.cateSeries
-                                </a>
-
-
-                            </li>
-                        }
-
-                    @*@foreach (DACN_SalePhone.Models.CategoriesList item in Model)
                     {
                         <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
 
-                            <a class="nav-link" href="Product">
-                                @Html.ActionLink(item.cateSeries, "Header", "Home", new { cateID == item.cateID }, new { @class = "nav-item mr-lg-2 mb-lg-0 mb-2" })
+                            <a class="nav-link" href="@Url.Action("ProductListByCategories","Home",new {cateID = item.cateID})">
+                                @item.cateSeries
                             </a>
 
 
                         </li>
-                    }*@
+                    }
+
+                    @*@foreach (DACN_SalePhone.Models.CategoriesList item in Model)
+                        {
+                            <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+
+                                <a class="nav-link" href="Product">
+                                    @Html.ActionLink(item.cateSeries, "Header", "Home", new { cateID == item.cateID }, new { @class = "nav-item mr-lg-2 mb-lg-0 mb-2" })
+                                </a>
+
+
+                            </li>
+                        }*@
 
 
                     <li class="nav-item mr-lg-2 mb-lg-0 mb-2">

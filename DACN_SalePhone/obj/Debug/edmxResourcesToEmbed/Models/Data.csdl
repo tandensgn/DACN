@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="qlbdtDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="qlbdtDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="category">
     <Key>
       <PropertyRef Name="cate_id" />
@@ -35,7 +35,6 @@
     <Property Name="cus_phone" Type="Int32" Nullable="false" />
     <Property Name="cus_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cus_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="orders" Relationship="Self.fk_order_customers" FromRole="customers" ToRole="orders" />
   </EntityType>
   <EntityType Name="orderdetail">
     <Key>
@@ -49,17 +48,16 @@
     <Property Name="ord_sale" Type="Int32" Nullable="false" />
     <Property Name="ord_total" Type="Int32" Nullable="false" />
     <NavigationProperty Name="order" Relationship="Self.fk_orderdetail_orders" FromRole="orderdetail" ToRole="orders" />
-    <NavigationProperty Name="product" Relationship="Self.fk_orderdetail_products" FromRole="orderdetail" ToRole="products" />
   </EntityType>
   <EntityType Name="order">
     <Key>
       <PropertyRef Name="or_id" />
     </Key>
     <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cus_id" Type="Int32" Nullable="false" />
+    <Property Name="or_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="or_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="or_status" Type="Int32" Nullable="false" />
     <Property Name="cus_total" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="customer" Relationship="Self.fk_order_customers" FromRole="orders" ToRole="customers" />
     <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_orders" FromRole="orders" ToRole="orderdetail" />
   </EntityType>
   <EntityType Name="product">
@@ -70,6 +68,8 @@
     <Property Name="cate_id" Type="Int32" Nullable="false" />
     <Property Name="prod_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="prod_icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="prod_image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="prod_reprice" Type="Int32" />
     <Property Name="prod_price" Type="Int32" Nullable="false" />
     <Property Name="prod_warranty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_accessories" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -85,12 +85,11 @@
     <Property Name="prod_cpu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_ram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_Imemory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="prod_Ememory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prod_Ememory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="prod_sim" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prod_pin" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="category" Relationship="Self.fk_products_categories" FromRole="products" ToRole="categories" />
     <NavigationProperty Name="colorproducts" Relationship="Self.fk_colorproduct_products" FromRole="products" ToRole="colorproduct" />
-    <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_products" FromRole="products" ToRole="orderdetail" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -138,18 +137,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_order_customers">
-    <End Role="customers" Type="Self.customer" Multiplicity="1" />
-    <End Role="orders" Type="Self.order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="customers">
-        <PropertyRef Name="cus_id" />
-      </Principal>
-      <Dependent Role="orders">
-        <PropertyRef Name="cus_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_orderdetail_orders">
     <End Role="orders" Type="Self.order" Multiplicity="1" />
     <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -162,19 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_orderdetail_products">
-    <End Role="products" Type="Self.product" Multiplicity="1" />
-    <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="products">
-        <PropertyRef Name="prod_id" />
-      </Principal>
-      <Dependent Role="orderdetail">
-        <PropertyRef Name="prod_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="qlbdtDBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="qlbdtDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="categories" EntityType="Self.category" />
     <EntitySet Name="colorlists" EntityType="Self.colorlist" />
     <EntitySet Name="colorproducts" EntityType="Self.colorproduct" />
@@ -195,16 +170,8 @@
       <End Role="products" EntitySet="products" />
       <End Role="colorproduct" EntitySet="colorproducts" />
     </AssociationSet>
-    <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
-      <End Role="customers" EntitySet="customers" />
-      <End Role="orders" EntitySet="orders" />
-    </AssociationSet>
     <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
       <End Role="orders" EntitySet="orders" />
-      <End Role="orderdetail" EntitySet="orderdetails" />
-    </AssociationSet>
-    <AssociationSet Name="fk_orderdetail_products" Association="Self.fk_orderdetail_products">
-      <End Role="products" EntitySet="products" />
       <End Role="orderdetail" EntitySet="orderdetails" />
     </AssociationSet>
   </EntityContainer>

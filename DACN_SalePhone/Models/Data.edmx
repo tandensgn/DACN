@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="qlbdtDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="qlbdtDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="categories">
           <Key>
             <PropertyRef Name="cate_id" />
@@ -54,7 +54,8 @@
             <PropertyRef Name="or_id" />
           </Key>
           <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cus_id" Type="int" Nullable="false" />
+          <Property Name="or_date" Type="datetime" Nullable="false" />
+          <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="or_status" Type="int" Nullable="false" />
           <Property Name="cus_total" Type="int" Nullable="false" />
         </EntityType>
@@ -66,6 +67,8 @@
           <Property Name="cate_id" Type="int" Nullable="false" />
           <Property Name="prod_name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="prod_icon" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="prod_image" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="prod_reprice" Type="int" />
           <Property Name="prod_price" Type="int" Nullable="false" />
           <Property Name="prod_warranty" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="prod_accessories" Type="varchar" MaxLength="255" Nullable="false" />
@@ -81,7 +84,7 @@
           <Property Name="prod_cpu" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="prod_ram" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="prod_Imemory" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="prod_Ememory" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prod_Ememory" Type="varchar" MaxLength="255" />
           <Property Name="prod_sim" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="prod_pin" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
@@ -119,18 +122,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_order_customers">
-          <End Role="customers" Type="Self.customers" Multiplicity="1" />
-          <End Role="orders" Type="Self.orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customers">
-              <PropertyRef Name="cus_id" />
-            </Principal>
-            <Dependent Role="orders">
-              <PropertyRef Name="cus_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_orderdetail_orders">
           <End Role="orders" Type="Self.orders" Multiplicity="1" />
           <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -140,18 +131,6 @@
             </Principal>
             <Dependent Role="orderdetail">
               <PropertyRef Name="or_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_orderdetail_products">
-          <End Role="products" Type="Self.products" Multiplicity="1" />
-          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="products">
-              <PropertyRef Name="prod_id" />
-            </Principal>
-            <Dependent Role="orderdetail">
-              <PropertyRef Name="prod_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -167,7 +146,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="qlbdtDBModelStoreContainer">
+        <EntityContainer Name="qlbdtDbModelStoreContainer">
           <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="colorlist" EntityType="Self.colorlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="colorproduct" EntityType="Self.colorproduct" Schema="dbo" store:Type="Tables" />
@@ -184,16 +163,8 @@
             <End Role="products" EntitySet="products" />
             <End Role="colorproduct" EntitySet="colorproduct" />
           </AssociationSet>
-          <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
-            <End Role="customers" EntitySet="customers" />
-            <End Role="orders" EntitySet="orders" />
-          </AssociationSet>
           <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
             <End Role="orders" EntitySet="orders" />
-            <End Role="orderdetail" EntitySet="orderdetail" />
-          </AssociationSet>
-          <AssociationSet Name="fk_orderdetail_products" Association="Self.fk_orderdetail_products">
-            <End Role="products" EntitySet="products" />
             <End Role="orderdetail" EntitySet="orderdetail" />
           </AssociationSet>
           <AssociationSet Name="fk_products_categories" Association="Self.fk_products_categories">
@@ -205,7 +176,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="qlbdtDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="qlbdtDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="cate_id" />
@@ -241,7 +212,6 @@
           <Property Name="cus_phone" Type="Int32" Nullable="false" />
           <Property Name="cus_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cus_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="orders" Relationship="Self.fk_order_customers" FromRole="customers" ToRole="orders" />
         </EntityType>
         <EntityType Name="orderdetail">
           <Key>
@@ -255,17 +225,16 @@
           <Property Name="ord_sale" Type="Int32" Nullable="false" />
           <Property Name="ord_total" Type="Int32" Nullable="false" />
           <NavigationProperty Name="order" Relationship="Self.fk_orderdetail_orders" FromRole="orderdetail" ToRole="orders" />
-          <NavigationProperty Name="product" Relationship="Self.fk_orderdetail_products" FromRole="orderdetail" ToRole="products" />
         </EntityType>
         <EntityType Name="order">
           <Key>
             <PropertyRef Name="or_id" />
           </Key>
           <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cus_id" Type="Int32" Nullable="false" />
+          <Property Name="or_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="or_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="or_status" Type="Int32" Nullable="false" />
           <Property Name="cus_total" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="customer" Relationship="Self.fk_order_customers" FromRole="orders" ToRole="customers" />
           <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_orders" FromRole="orders" ToRole="orderdetail" />
         </EntityType>
         <EntityType Name="product">
@@ -276,6 +245,8 @@
           <Property Name="cate_id" Type="Int32" Nullable="false" />
           <Property Name="prod_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="prod_icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prod_image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prod_reprice" Type="Int32" />
           <Property Name="prod_price" Type="Int32" Nullable="false" />
           <Property Name="prod_warranty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prod_accessories" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -291,12 +262,11 @@
           <Property Name="prod_cpu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prod_ram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prod_Imemory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prod_Ememory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_Ememory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="prod_sim" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prod_pin" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="category" Relationship="Self.fk_products_categories" FromRole="products" ToRole="categories" />
           <NavigationProperty Name="colorproducts" Relationship="Self.fk_colorproduct_products" FromRole="products" ToRole="colorproduct" />
-          <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_products" FromRole="products" ToRole="orderdetail" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -344,18 +314,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_order_customers">
-          <End Role="customers" Type="Self.customer" Multiplicity="1" />
-          <End Role="orders" Type="Self.order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customers">
-              <PropertyRef Name="cus_id" />
-            </Principal>
-            <Dependent Role="orders">
-              <PropertyRef Name="cus_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_orderdetail_orders">
           <End Role="orders" Type="Self.order" Multiplicity="1" />
           <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -368,19 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_orderdetail_products">
-          <End Role="products" Type="Self.product" Multiplicity="1" />
-          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="products">
-              <PropertyRef Name="prod_id" />
-            </Principal>
-            <Dependent Role="orderdetail">
-              <PropertyRef Name="prod_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="qlbdtDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="qlbdtDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="categories" EntityType="Self.category" />
           <EntitySet Name="colorlists" EntityType="Self.colorlist" />
           <EntitySet Name="colorproducts" EntityType="Self.colorproduct" />
@@ -401,16 +347,8 @@
             <End Role="products" EntitySet="products" />
             <End Role="colorproduct" EntitySet="colorproducts" />
           </AssociationSet>
-          <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
-            <End Role="customers" EntitySet="customers" />
-            <End Role="orders" EntitySet="orders" />
-          </AssociationSet>
           <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
             <End Role="orders" EntitySet="orders" />
-            <End Role="orderdetail" EntitySet="orderdetails" />
-          </AssociationSet>
-          <AssociationSet Name="fk_orderdetail_products" Association="Self.fk_orderdetail_products">
-            <End Role="products" EntitySet="products" />
             <End Role="orderdetail" EntitySet="orderdetails" />
           </AssociationSet>
         </EntityContainer>
@@ -419,9 +357,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="qlbdtDBModelStoreContainer" CdmEntityContainer="qlbdtDBEntities">
+        <EntityContainerMapping StorageEntityContainer="qlbdtDbModelStoreContainer" CdmEntityContainer="qlbdtDbEntities">
           <EntitySetMapping Name="categories">
-            <EntityTypeMapping TypeName="qlbdtDBModel.category">
+            <EntityTypeMapping TypeName="qlbdtDbModel.category">
               <MappingFragment StoreEntitySet="categories">
                 <ScalarProperty Name="cate_id" ColumnName="cate_id" />
                 <ScalarProperty Name="cate_series" ColumnName="cate_series" />
@@ -429,7 +367,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="colorlists">
-            <EntityTypeMapping TypeName="qlbdtDBModel.colorlist">
+            <EntityTypeMapping TypeName="qlbdtDbModel.colorlist">
               <MappingFragment StoreEntitySet="colorlist">
                 <ScalarProperty Name="co_id" ColumnName="co_id" />
                 <ScalarProperty Name="co_name" ColumnName="co_name" />
@@ -437,7 +375,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="colorproducts">
-            <EntityTypeMapping TypeName="qlbdtDBModel.colorproduct">
+            <EntityTypeMapping TypeName="qlbdtDbModel.colorproduct">
               <MappingFragment StoreEntitySet="colorproduct">
                 <ScalarProperty Name="cop_id" ColumnName="cop_id" />
                 <ScalarProperty Name="prod_id" ColumnName="prod_id" />
@@ -446,7 +384,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="customers">
-            <EntityTypeMapping TypeName="qlbdtDBModel.customer">
+            <EntityTypeMapping TypeName="qlbdtDbModel.customer">
               <MappingFragment StoreEntitySet="customers">
                 <ScalarProperty Name="cus_id" ColumnName="cus_id" />
                 <ScalarProperty Name="cus_name" ColumnName="cus_name" />
@@ -457,7 +395,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orderdetails">
-            <EntityTypeMapping TypeName="qlbdtDBModel.orderdetail">
+            <EntityTypeMapping TypeName="qlbdtDbModel.orderdetail">
               <MappingFragment StoreEntitySet="orderdetail">
                 <ScalarProperty Name="ord_id" ColumnName="ord_id" />
                 <ScalarProperty Name="or_id" ColumnName="or_id" />
@@ -470,22 +408,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orders">
-            <EntityTypeMapping TypeName="qlbdtDBModel.order">
+            <EntityTypeMapping TypeName="qlbdtDbModel.order">
               <MappingFragment StoreEntitySet="orders">
                 <ScalarProperty Name="or_id" ColumnName="or_id" />
-                <ScalarProperty Name="cus_id" ColumnName="cus_id" />
+                <ScalarProperty Name="or_date" ColumnName="or_date" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
                 <ScalarProperty Name="or_status" ColumnName="or_status" />
                 <ScalarProperty Name="cus_total" ColumnName="cus_total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="products">
-            <EntityTypeMapping TypeName="qlbdtDBModel.product">
+            <EntityTypeMapping TypeName="qlbdtDbModel.product">
               <MappingFragment StoreEntitySet="products">
                 <ScalarProperty Name="prod_id" ColumnName="prod_id" />
                 <ScalarProperty Name="cate_id" ColumnName="cate_id" />
                 <ScalarProperty Name="prod_name" ColumnName="prod_name" />
                 <ScalarProperty Name="prod_icon" ColumnName="prod_icon" />
+                <ScalarProperty Name="prod_image" ColumnName="prod_image" />
+                <ScalarProperty Name="prod_reprice" ColumnName="prod_reprice" />
                 <ScalarProperty Name="prod_price" ColumnName="prod_price" />
                 <ScalarProperty Name="prod_warranty" ColumnName="prod_warranty" />
                 <ScalarProperty Name="prod_accessories" ColumnName="prod_accessories" />
@@ -508,7 +449,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="qlbdtDBModel.user">
+            <EntityTypeMapping TypeName="qlbdtDbModel.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="us_id" ColumnName="us_id" />
                 <ScalarProperty Name="us_name" ColumnName="us_name" />

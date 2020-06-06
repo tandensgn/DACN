@@ -16,6 +16,8 @@ namespace DACN_SalePhone.Models
         public int cateID { set; get; }
         public string productName { set; get; }
         public string productIcon { set; get; }
+        public string productImage { set; get; }
+        public int productReprice { set; get; }
         public int productPrice { set; get; }
         public string productWarranty { set; get; }
         public string productAccessories { set; get; }
@@ -48,6 +50,8 @@ namespace DACN_SalePhone.Models
         public int cateID { set; get; }
         public string productName { set; get; }
         public string productIcon { set; get; }
+        public string productImage { set; get; }
+        public int productReprice { set; get; }
         public int productPrice { set; get; }
         public string productWarranty { set; get; }
         public string productAccessories { set; get; }

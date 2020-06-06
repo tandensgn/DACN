@@ -25,9 +25,7 @@
     <div class="container py-xl-4 py-lg-2">
         <!-- tittle heading -->
         <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-            <span>M</span>obiles
-            <span>&</span>
-            <span>C</span>omputers
+            <span>@ViewBag.cateSeries</span>
         </h3>
         <!-- //tittle heading -->
         <div class="row">
@@ -54,31 +52,16 @@
                                                 <a href="@Url.Action("ProductDetail", "Home", new { prodId = item.productID })">@item.productName</a>
                                             </h4>
                                             <div class="info-product-price my-2">
-                                                <span class="item_price">@item.productPrice</span>
-                                                <del>$280.00</del>
+                                                <span class="item_price">@item.productPrice VND</span>
+                                                <del>@item.productReprice VND</del>
                                             </div>
                                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                                <form action="#" method="post">
-                                                    <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="Samsung Galaxy J7" />
-                                                        <input type="hidden" name="amount" value="200.00" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                        <input type="submit" name="submit" value="Add to cart" class="button btn" />
-                                                    </fieldset>
-                                                </form>
+                                                <input type="button" name="AddToCart" value="Add to cart" id="btnAddToCart" class="button btn" itemid="@item.productID" itemscope onclick="AddToCart(this)" />
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
-                            }
+                             }
                         </div>
                     </div>
                     <!-- //first section -->

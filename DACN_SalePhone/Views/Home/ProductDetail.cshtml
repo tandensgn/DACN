@@ -37,15 +37,14 @@
         <div class="container py-xl-4 py-lg-2">
             <!-- tittle heading -->
             <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-                <span>P</span>roduct
-                <span>D</span>etail
+                <span>@prodName.productName</span>
             </h3>
             <!-- //tittle heading -->
             <div class="row">
                 <div class="col-lg-5 col-md-8 single-right-left ">
                     <div class="grid images_3_of_2">
                         <div class="flexslider">
-                            <img src="@prodName.productIcon" data-imagezoom="true" class="img-fluid" alt="">
+                            <img src="@prodName.productImage" data-imagezoom="true" class="img-fluid" alt="">
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -53,24 +52,10 @@
 
 
                 <div class="col-lg-7 single-right-left simpleCart_shelfItem">
-                    <h3 class="mb-3">@prodName.productName</h3>
+                    <h3 class="mb-3">Specification</h3>
                     <p class="mb-3">
-                        <span class="item_price">@prodName.productPrice</span>
-                        <label>Free delivery</label>
+                        <span class="item_price">@prodName.productPrice VND</span>
                     </p>
-                    <div class="single-infoagile">
-                        <ul>
-                            <li class="mb-3">
-                                Cash on Delivery Eligible.
-                            </li>
-                            <li class="mb-3">
-                                Shipping Speed to Delivery.
-                            </li>
-                            <li class="mb-3">
-                                Bank OfferExtra 5% off
-                            </li>
-                        </ul>
-                    </div>
                     <div class="product-single-w3l">
                         <p class="my-3">
                             <i class="far fa-hand-point-right mr-2"></i>
@@ -78,19 +63,22 @@
                         </p>
                         <ul>
                             <li class="mb-1">
-                                @prodName.productRam GB RAM | @prodName.productImemory GB ROM | Expandable Upto @prodName.productEmemory GB
+                                RAM : @prodName.productRam GB | ROM : @prodName.productImemory GB  | Expandable Upto @prodName.productEmemory GB
                             </li>
                             <li class="mb-1">
-                                @prodName.productScreen inch Full HD Display
+                                Display : @prodName.productScreen
                             </li>
                             <li class="mb-1">
-                                @prodName.productCamr Rear Camera | @prodName.productCamf Front Camera
+                                Rear Camera : @prodName.productCamr
                             </li>
                             <li class="mb-1">
-                                @prodName.productPin mAh Battery
+                                Front Camera : @prodName.productCamf
                             </li>
                             <li class="mb-1">
-                                @prodName.productCpu
+                                Battery : @prodName.productPin mAh
+                            </li>
+                            <li class="mb-1">
+                                CPU : @prodName.productCpu
                             </li>
                         </ul>
                         <p class="my-sm-4 my-3">
@@ -100,18 +88,24 @@
                     <div class="occasion-cart">
                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                             <form action="#" method="post">
-                                <fieldset>
-                                    <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="add" value="1" />
-                                    <input type="hidden" name="business" value=" " />
-                                    <input type="hidden" name="item_name" value="Samsung Galaxy J7 Prime" />
-                                    <input type="hidden" name="amount" value="200.00" />
-                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                    <input type="hidden" name="currency_code" value="USD" />
-                                    <input type="hidden" name="return" value=" " />
-                                    <input type="hidden" name="cancel_return" value=" " />
-                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                </fieldset>
+                                @*<div class="quantity_title">
+                                    <i class="fas fa-cart-plus"
+                                       style="color: #0879c9; font-size: 24px;padding-right: 15px;"></i> Quantity :
+                                </div>
+                                <div class="invert" style="padding: 20px 0px;">
+                                    <div class="quantity">
+                                        <div class="quantity-select">
+                                            <div class="entry value-minus">&nbsp;</div>
+                                            <div class="entry value">
+                                                <span>1</span>
+                                            </div>
+                                            <div class="entry value-plus active">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <a @*href="@Url.Action("ShoppingCart", "Shopping", new { id = "cartItem" })"*@>
+                                    @*<input  type="button" name="AddToCart" value="Buy" id="btnAddToCart" class="button btn" itemid="@prodName.productID" itemscope onclick="AddToCart(this)" />*@
+                                </a>
                             </form>
                         </div>
                     </div>

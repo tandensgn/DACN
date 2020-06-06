@@ -244,12 +244,12 @@ input[type="submit"] {
 
 /*-- header cart button --*/
 
-button.w3view-cart {
+a.w3view-cart {
     font-size: 20px;
     color: #fff;
-    width: 50px;
+    width: auto;
     height: 44px;
-    background: #000;
+    background: #000 !important;
     border: 1px solid rgba(27, 25, 25, 0.27);
 }
 
@@ -1576,15 +1576,13 @@ td.invert-image a img {
     position: relative;
 }
 
-.close1,
-.close2,
-.close3 {
+.close{
     background: url('../images/close_1.png') no-repeat 0px 0px;
     cursor: pointer;
     width: 28px;
     height: 28px;
     position: absolute;
-    right: 15px;
+    right: 42px;
     top: -13px;
     -webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
@@ -1642,7 +1640,7 @@ td.invert-image a img {
     width: 40px;
     height: 40px;
     padding: 8px 0px;
-    color: #A9A9A9;
+    color: #000;
     line-height: 24px;
     border: 1px solid #E5E5E5;
     background-color: #E5E5E5;
@@ -2188,6 +2186,9 @@ div#testimonials h4.m-title {
 	display: inherit;
 }
 
+.agileinfo-ads-display{
+    width:100%;
+}
 /*-- placeholder-color 
 
 ::-webkit-input-placeholder {
@@ -2209,12 +2210,10 @@ div#testimonials h4.m-title {
 }
 
 /*-- //placeholder-color --*/
-
 /*-- //contact page --*/
-
 /*--responsive--*/
-
-@media(max-width: 1680px) {}
+@media(max-width: 1680px) {
+}
 
 @media(max-width: 1600px) {}
 

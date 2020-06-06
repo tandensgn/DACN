@@ -10,10 +10,10 @@ namespace DACN_SalePhone.Controllers
 {
     public class HomeController : Controller
     {
-        qlbdtDBEntities db = new qlbdtDBEntities();
+        qlbdtDbEntities db = new qlbdtDbEntities();
+        List<ShoppingCart> listOfShoppingCart = new List<ShoppingCart>();
         public ActionResult Index()
         {
-
             return View();
         }
         public ActionResult Contact()
@@ -26,6 +26,7 @@ namespace DACN_SalePhone.Controllers
 
             return View();
         }
+
 
         [ChildActionOnly]
         public ActionResult CategoriesHeader()
@@ -58,6 +59,8 @@ namespace DACN_SalePhone.Controllers
                                   cateID = i.cate_id,
                                   productName = i.prod_name,
                                   productIcon = i.prod_icon,
+                                  productImage = i.prod_image,
+                                  productReprice = (int)i.prod_reprice,
                                   productPrice = i.prod_price,
                                   productWarranty = i.prod_warranty,
                                   productAccessories = i.prod_accessories,
@@ -93,7 +96,6 @@ namespace DACN_SalePhone.Controllers
             };
             return View(productListByCategories);
         }
-
         public ActionResult ProductDetail(int prodID)
         {
             ProductsAndCategories productsQuery = (from p in db.products
@@ -105,6 +107,8 @@ namespace DACN_SalePhone.Controllers
                                                        cateID = p.cate_id,
                                                        productName = p.prod_name,
                                                        productIcon = p.prod_icon,
+                                                       productImage = p.prod_image,
+                                                       productReprice = (int)p.prod_reprice,
                                                        productPrice = p.prod_price,
                                                        productWarranty = p.prod_warranty,
                                                        productAccessories = p.prod_accessories,
@@ -126,8 +130,8 @@ namespace DACN_SalePhone.Controllers
                                                        cateSeries = c.cate_series
                                                    }).FirstOrDefault();
             ViewBag.prodName = productsQuery;
-            
             return View(productsQuery);
         }
+
     }
 }

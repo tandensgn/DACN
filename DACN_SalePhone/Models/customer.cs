@@ -14,17 +14,10 @@ namespace DACN_SalePhone.Models
     
     public partial class customer
     {
-        public customer()
-        {
-            this.orders = new HashSet<order>();
-        }
-    
         public int cus_id { get; set; }
         public string cus_name { get; set; }
         public int cus_phone { get; set; }
         public string cus_email { get; set; }
         public string cus_address { get; set; }
-    
-        public virtual ICollection<order> orders { get; set; }
     }
 }
